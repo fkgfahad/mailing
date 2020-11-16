@@ -1,0 +1,33 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+{% include 'utils/auth.style.html' %}
+
+    <div class="auth-container">
+        <div>
+            <h1 class="h3">Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autofocus autocomplete="off" class="form-control" type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password" required>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+
+    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+        </div>
+    </div>
+
+{% endblock %}

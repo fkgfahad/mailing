@@ -1,0 +1,9 @@
+textarea {
+  min-height: 400px;
+}
+li {
+  cursor: pointer;
+}
+li.read {
+  background-color: #eee;
+}
